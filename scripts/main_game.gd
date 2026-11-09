@@ -6,9 +6,9 @@ extends Control
 @onready var timer_label: Label = $MainMargin/VBoxContainer/Header/TimerLabel
 @onready var level_ui: CanvasLayer = $LevelUI
 
-const cols: int = 5
-const rows: int = 5
-const tokens: Array[String] = ["1C", "BD", "55", "E9", "7A", "45","65", "D0"]
+const cols: int = 6
+const rows: int = 6
+const tokens: Array[String] = ["1C", "BD", "55", "E9", "7A", "45","65", "D0", "FF", "MT", "I0"]
 
 enum moveState { START, ROW, COL }
 var current_state: moveState = moveState.START
@@ -34,14 +34,16 @@ var is_game_over: bool = false
 var is_danger_mode: bool = false
 var timer_tween: Tween
 
+var path_length: int = 6
 
 func _ready() -> void:
-	
+	code_matrix.columns = cols
 	timer_label.pivot_offset = timer_label.size / 2
 	generate_buttons()
 	generate_level()
 	update_memory_ui()
 	level_ui.update_level_ui()
+	update_visuals()
 
 func _process(delta: float) -> void:
 	if is_game_over: return
@@ -75,17 +77,16 @@ func start_danger_animation() -> void:
 	timer_tween = create_tween().set_loops()
 	
 	timer_tween.tween_property(timer_label, "modulate", Color.RED, 0.5)
-	timer_tween.parallel().tween_property(timer_label, "scale", Vector2(1.5, 1.5), 1.5)
+	#timer_tween.parallel().tween_property(timer_label, "scale", Vector2(1.5, 1.5), 1.5)
 
 func reset_danger_animation() -> void:
 	if timer_tween:
 		timer_tween.kill()
-	timer_tween.parallel().tween_property(timer_label, "scale", Vector2(1.0, 1.0), 0.3)
+	#timer_tween.parallel().tween_property(timer_label, "scale", Vector2(1.0, 1.0), 0.3)
 	timer_label.modulate = Color.WHITE
 
 
 func generate_level() -> void:
-	var path_length: int = 6
 	var path_cords: Array = []
 	var master_sequence: Array = []
 	
@@ -113,9 +114,30 @@ func generate_level() -> void:
 	for i in range(path_length):
 		master_sequence.append(tokens.pick_random())
 	
-	injections[0]["sequence"] = master_sequence.slice(4,6)
-	injections[1]["sequence"] = master_sequence.slice(0, 3)
-	injections[2]["sequence"] = master_sequence.slice(2,5)
+	
+	var len_a = 3
+	var len_b = 3
+	var len_c = 2
+	
+	if path_length >= 7:
+		len_b = 4 
+
+	var start_a = randi() % (path_length - len_a + 1)
+	var start_b = randi() % (path_length - len_b + 1)
+	while start_b == start_a:
+		start_b = randi() % (path_length - len_b + 1)
+		
+	var start_c = randi() % (path_length - len_c + 1)
+	
+	var seq_1 = master_sequence.slice(start_a, start_a + len_a)
+	var seq_2 = master_sequence.slice(start_b, start_b + len_b)
+	var seq_3 = master_sequence.slice(start_c, start_c + len_c)
+	
+	var generated_sequences = [seq_1, seq_2, seq_3]
+	generated_sequences.shuffle()
+	
+	for i in range(injections.size()):
+		injections[i]["sequence"] = generated_sequences[i]
 	
 	update_injection_ui()
 	
@@ -137,11 +159,6 @@ func generate_level() -> void:
 			var token = tokens.pick_random()
 			btn.setup(token)
 			btn.pressed.connect(_on_token_clicked.bind(btn, col, row, token))
-	
-	print("--- CHEAT CODE ---")
-	print(master_sequence)
-	print(path_cords)
-	print("----------------------------------")
 	
 func generate_injections() -> void:
 	var lengths = [2, 3, 3]
@@ -171,7 +188,7 @@ func update_injection_ui() -> void:
 
 
 func generate_buttons() -> void:
-	for i in range(25):
+	for i in range(36):
 		create_button("")
 	pass
 
@@ -193,8 +210,6 @@ func create_button(value: String) -> void:
 	new_button.setup(value)
 	
 	code_matrix.add_child(new_button)
-
-
 
 func _on_token_clicked(btn: Button, col: int, row: int, token: String) -> void:
 	if current_state == moveState.START and row != 0: return
@@ -338,19 +353,23 @@ func has_valid_moves_left() -> bool:
 		var col = i % cols
 		var row = int(i/cols)
 		
+		if current_state == moveState.START and row == 0:
+			return true
 		if current_state == moveState.ROW and row == active_index:
 			return true
 		if current_state == moveState.COL and col == active_index:
 			return true
 		
 	return false
-
+	
 func advance_to_next_layer() -> void:
+	
 	Stats.layer += 1
 	current_state = moveState.START
 	active_index = 0
 	memory.clear()
 	completed_injection_count = 0
+	change_rules()
 	
 	for inj in injections:
 		inj["completed"] = false
@@ -372,3 +391,17 @@ func advance_to_next_layer() -> void:
 	
 	if level_ui and level_ui.has_method("update_level_ui"):
 		level_ui.update_level_ui()
+
+func change_rules() -> void:
+	if Stats.layer == 2:
+		path_length = 7
+		print("changed path length to 7")
+		
+	if Stats.layer == 4:
+		path_length = 6
+		max_memory = 6
+		print("LAYER 4: Ograniczenie pamięci do 6 slotów!")
+
+	if Stats.layer == 6:
+		path_length = 5
+		max_memory = 5

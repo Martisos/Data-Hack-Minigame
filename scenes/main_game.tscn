@@ -60,7 +60,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-columns = 5
+columns = 6
 
 [node name="InjectionList" type="VBoxContainer" parent="MainMargin/VBoxContainer/MainContent" unique_id=610446559]
 layout_mode = 2
@@ -85,3 +85,4 @@ text = "Injection 3"
 [node name="LevelUI" parent="." unique_id=703004875 instance=ExtResource("2_72e8q")]
 
 [node name="ShaderLayer" parent="." unique_id=1508165670 instance=ExtResource("3_d2op2")]
+visible = false
