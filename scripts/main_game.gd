@@ -3,6 +3,7 @@ extends Control
 @onready var code_matrix: GridContainer = $"MainMargin/VBoxContainer/MainContent/Code Matrix"
 @onready var memory_bar: HBoxContainer = $MainMargin/VBoxContainer/Header/MemoryBar
 @onready var injection_list: VBoxContainer = $MainMargin/VBoxContainer/MainContent/InjectionList
+@onready var timer_label: Label = $MainMargin/VBoxContainer/Header/TimerLabel
 
 const cols: int = 5
 const rows: int = 5
@@ -17,15 +18,45 @@ var memory: Array[String] = []
 var max_memory: int = 7
 
 var injections: Array[Dictionary] = [
-	{"name": "Alpha", "sequence": [], "reward": 5, "completed": false},
-	{"name": "Beta", "sequence": [], "reward": 12, "completed": false},
-	{"name": "Gamma", "sequence": [], "reward": 20, "completed": false}
+	{"name": "Alpha", "sequence": [], "reward": 3, "completed": false},
+	{"name": "Beta", "sequence": [], "reward": 8, "completed": false},
+	{"name": "Gamma", "sequence": [], "reward": 18, "completed": false}
 ]
+
+var time_left: float = 30.0
+
+var is_game_over: bool = false
 
 func _ready() -> void:
 	generate_buttons()
 	generate_level()
 
+func _process(delta: float) -> void:
+	if is_game_over: return
+	
+	time_left -= delta
+	
+	if time_left <= 0:
+		time_left = 0.0
+		is_game_over = true
+		print("GAMEOVER")
+	
+	update_timer_ui()
+
+func update_timer_ui() -> void:
+	var seconds = int(time_left)
+	var miliseconds = int(fmod(time_left, 1.0) * 100)
+	timer_label.text = "%02d:%02d" % [seconds, miliseconds]
+	
+	var tween = create_tween().set_parallel(true)
+	if time_left <= 10.0:
+		tween.tween_property(timer_label, "modulate", Color.RED, 2.0)
+		tween.tween_property(timer_label, "scale", Vector2(1.3, 1.3), 2.0)
+	else:
+		tween.tween_property(timer_label, "modulate", Color.WHITE, 0.5)
+		tween.tween_property(timer_label, "scale", Vector2(1, 1), 0.5)
+	
+	
 func generate_level() -> void:
 	var path_length: int = 6
 	var path_cords: Array = []
@@ -192,6 +223,7 @@ func check_injections() -> void:
 		
 		if is_sub_array(memory, inj["sequence"]):
 			inj["completed"] = true
+			time_left += inj["reward"]
 			successs_this_turn = true
 			print("won: ", inj["name"])
 			# TODO: global timer
