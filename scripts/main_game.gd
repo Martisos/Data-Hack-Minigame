@@ -24,9 +24,67 @@ var injections: Array[Dictionary] = [
 
 func _ready() -> void:
 	generate_buttons()
-	setup_matrix()
-	generate_injections()
+	generate_level()
 
+func generate_level() -> void:
+	var path_length: int = 6
+	var path_cords: Array = []
+	var master_sequence: Array = []
+	
+	var curr_row = 0
+	var curr_col = randi() % cols
+	path_cords.append(Vector2(curr_col, curr_row))
+	
+	var is_moving_col = true
+	
+	for i in range(1, path_length):
+		if is_moving_col:
+			var new_row = randi() % rows
+			while new_row == curr_row:
+				new_row = randi() % rows
+			curr_row = new_row
+		else:
+			var new_col = randi() % cols
+			while new_col == curr_col:
+				new_col = randi() % cols
+			curr_col = new_col
+		
+		path_cords.append(Vector2(curr_col, curr_row))
+		is_moving_col = !is_moving_col
+	
+	for i in range(path_length):
+		master_sequence.append(tokens.pick_random())
+	
+	injections[0]["sequence"] = master_sequence.slice(4,6)
+	injections[1]["sequence"] = master_sequence.slice(0, 3)
+	injections[2]["sequence"] = master_sequence.slice(2,5)
+	
+	update_injection_ui()
+	
+	var buttons = code_matrix.get_children()
+	
+	for i in range(buttons.size()):
+		var btn = buttons[i] as Button
+		var col = i % cols
+		var row = int(i / cols)
+		var current_pos = Vector2(col, row)
+		
+		var path_index = path_cords.find(current_pos)
+		
+		if path_index != -1:
+			var token = master_sequence[path_index]
+			btn.setup(token)
+			btn.pressed.connect(_on_token_clicked.bind(btn, col, row, token))
+		else:
+			var token = tokens.pick_random()
+			btn.setup(token)
+			btn.pressed.connect(_on_token_clicked.bind(btn, col, row, token))
+	
+	print("--- CHEAT CODE ---")
+	print(master_sequence)
+	print(path_cords)
+	print("----------------------------------")
+	
 func generate_injections() -> void:
 	var lengths = [2, 3, 3]
 	
@@ -111,10 +169,19 @@ func update_memory_ui() -> void:
 	for child in memory_bar.get_children():
 		child.queue_free()
 	
+
+	
 	for token in memory:
 		var lbl = Label.new()
 		lbl.text = "[" + token + "]"
 		memory_bar.add_child(lbl)
+	
+	for i in range(max_memory - memory.size()):
+		var rect = ColorRect.new()
+		rect.color = Color.WHITE
+		rect.custom_minimum_size = Vector2(40, 40)
+		rect.custom_maximum_size = Vector2(40, 40)
+		memory_bar.add_child(rect)
 
 func check_injections() -> void:
 	var successs_this_turn: bool = false
@@ -159,8 +226,6 @@ func update_visuals() -> void:
 		
 		var col = i % cols
 		var row = int(i / cols)
-		
-		
 		
 		var is_valid_move: bool = false
 		

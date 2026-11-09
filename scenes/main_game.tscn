@@ -41,41 +41,13 @@ size_flags_horizontal = 4
 
 [node name="TimerLabel" type="Label" parent="MainMargin/VBoxContainer/Header" unique_id=167810535]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "1:00"
+theme_override_font_sizes/font_size = 48
+text = "30:00"
 horizontal_alignment = 1
 
 [node name="MemoryBar" type="HBoxContainer" parent="MainMargin/VBoxContainer/Header" unique_id=685214692]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="MainMargin/VBoxContainer/Header/MemoryBar" unique_id=721315350]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ColorRect2" type="ColorRect" parent="MainMargin/VBoxContainer/Header/MemoryBar" unique_id=1313688342]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ColorRect3" type="ColorRect" parent="MainMargin/VBoxContainer/Header/MemoryBar" unique_id=2003178846]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ColorRect4" type="ColorRect" parent="MainMargin/VBoxContainer/Header/MemoryBar" unique_id=742330858]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ColorRect5" type="ColorRect" parent="MainMargin/VBoxContainer/Header/MemoryBar" unique_id=608148288]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ColorRect6" type="ColorRect" parent="MainMargin/VBoxContainer/Header/MemoryBar" unique_id=1202901436]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-
-[node name="ColorRect7" type="ColorRect" parent="MainMargin/VBoxContainer/Header/MemoryBar" unique_id=2081082648]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
 
 [node name="MainContent" type="HBoxContainer" parent="MainMargin/VBoxContainer" unique_id=1479495710]
 layout_mode = 2
@@ -94,12 +66,15 @@ size_flags_vertical = 4
 
 [node name="Injection1" type="Label" parent="MainMargin/VBoxContainer/MainContent/InjectionList" unique_id=1914935926]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Injection 1"
 
 [node name="Injection2" type="Label" parent="MainMargin/VBoxContainer/MainContent/InjectionList" unique_id=1565189043]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Injection 2"
 
 [node name="Injection3" type="Label" parent="MainMargin/VBoxContainer/MainContent/InjectionList" unique_id=1822938830]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Injection 3"
