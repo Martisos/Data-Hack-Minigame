@@ -6,9 +6,9 @@ extends Control
 @onready var timer_label: Label = $MainMargin/VBoxContainer/Header/TimerLabel
 @onready var level_ui: CanvasLayer = $LevelUI
 
-const cols: int = 6
-const rows: int = 6
-const tokens: Array[String] = ["1C", "BD", "55", "E9", "7A", "45","65", "D0", "FF", "MT", "I0"]
+var cols: int = 6
+var rows: int = 6
+var tokens: Array[String] = ["1C", "BD", "55", "E9", "7A", "45"]
 
 enum moveState { START, ROW, COL }
 var current_state: moveState = moveState.START
@@ -186,9 +186,23 @@ func update_injection_ui() -> void:
 				label.modulate = Color.GREEN_YELLOW
 
 
+func sync_grid_size() -> void:
+	code_matrix.columns = cols
+	var target_button_count = cols * rows
+	var current_button_count = code_matrix.get_child_count()
+	
+	while current_button_count < target_button_count:
+		create_button("")
+		current_button_count += 1
+		
+	while current_button_count > target_button_count:
+		var btn = code_matrix.get_child(0)
+		code_matrix.remove_child(btn)
+		btn.queue_free()
+		current_button_count -= 1
 
 func generate_buttons() -> void:
-	for i in range(36):
+	for i in range(cols * rows):
 		create_button("")
 	pass
 
@@ -370,6 +384,7 @@ func advance_to_next_layer() -> void:
 	memory.clear()
 	completed_injection_count = 0
 	change_rules()
+	sync_grid_size()
 	
 	for inj in injections:
 		inj["completed"] = false
@@ -394,14 +409,31 @@ func advance_to_next_layer() -> void:
 
 func change_rules() -> void:
 	if Stats.layer == 2:
-		path_length = 7
-		print("changed path length to 7")
-		
+		tokens.append("65")
+		tokens.append("D0")
+
+	if Stats.layer == 3:
+		reward_tiers = [4.0, 8.0, 13.0]
+	
 	if Stats.layer == 4:
+		cols = 7
+		rows = 7
+	
+	if Stats.layer == 5:
 		path_length = 6
 		max_memory = 6
-		print("LAYER 4: Ograniczenie pamięci do 6 slotów!")
-
+	
 	if Stats.layer == 6:
+		tokens.append("FF")
+		tokens.append("MT")
+		tokens.append("IO")
+
+	if Stats.layer == 7:
+		reward_tiers = [3.0, 6.0, 10.0]
+	
+	if Stats.layer == 9:
 		path_length = 5
 		max_memory = 5
+	
+	if Stats.layer == 10:
+		reward_tiers = [1.0, 5.0, 9.0]
