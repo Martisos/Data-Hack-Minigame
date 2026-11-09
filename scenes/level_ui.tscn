@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ia8uxoc7c38i"]
+
+[ext_resource type="Script" uid="uid://ih0gdov4buik" path="res://scripts/level_ui.gd" id="1_exbfu"]
+
+[node name="LevelUI" type="CanvasLayer" unique_id=703004875]
+script = ExtResource("1_exbfu")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=475143556]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LayerLabel" type="Label" parent="." unique_id=1018248245]
+offset_left = 921.0
+offset_top = 561.0
+offset_right = 1132.0
+offset_bottom = 628.0
+theme_override_font_sizes/font_size = 32
+text = "LAYER - 1"
+horizontal_alignment = 2
+vertical_alignment = 1

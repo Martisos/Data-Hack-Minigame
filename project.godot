@@ -15,6 +15,10 @@ run/main_scene="uid://b4ofl3qyv3r2b"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Stats="*uid://b6txdkr6sqie8"
+
 [display]
 
 window/stretch/mode="canvas_items"

@@ -4,6 +4,7 @@ extends Control
 @onready var memory_bar: HBoxContainer = $MainMargin/VBoxContainer/Header/MemoryBar
 @onready var injection_list: VBoxContainer = $MainMargin/VBoxContainer/MainContent/InjectionList
 @onready var timer_label: Label = $MainMargin/VBoxContainer/Header/TimerLabel
+@onready var level_ui: CanvasLayer = $LevelUI
 
 const cols: int = 5
 const rows: int = 5
@@ -18,18 +19,29 @@ var memory: Array[String] = []
 var max_memory: int = 7
 
 var injections: Array[Dictionary] = [
-	{"name": "Alpha", "sequence": [], "reward": 3, "completed": false},
-	{"name": "Beta", "sequence": [], "reward": 8, "completed": false},
-	{"name": "Gamma", "sequence": [], "reward": 18, "completed": false}
+	{"name": "Alpha", "sequence": [], "completed": false},
+	{"name": "Beta", "sequence": [], "completed": false},
+	{"name": "Gamma", "sequence": [], "completed": false}
 ]
+
+var completed_injection_count: int = 0
+var reward_tiers: Array[float] = [5.0, 10.0, 15.0]
 
 var time_left: float = 30.0
 
 var is_game_over: bool = false
 
+var is_danger_mode: bool = false
+var timer_tween: Tween
+
+
 func _ready() -> void:
+	
+	timer_label.pivot_offset = timer_label.size / 2
 	generate_buttons()
 	generate_level()
+	update_memory_ui()
+	level_ui.update_level_ui()
 
 func _process(delta: float) -> void:
 	if is_game_over: return
@@ -48,15 +60,30 @@ func update_timer_ui() -> void:
 	var miliseconds = int(fmod(time_left, 1.0) * 100)
 	timer_label.text = "%02d:%02d" % [seconds, miliseconds]
 	
-	var tween = create_tween().set_parallel(true)
-	if time_left <= 10.0:
-		tween.tween_property(timer_label, "modulate", Color.RED, 2.0)
-		tween.tween_property(timer_label, "scale", Vector2(1.3, 1.3), 2.0)
-	else:
-		tween.tween_property(timer_label, "modulate", Color.WHITE, 0.5)
-		tween.tween_property(timer_label, "scale", Vector2(1, 1), 0.5)
+	if time_left <= 10.0 and !is_danger_mode:
+		is_danger_mode = true
+		start_danger_animation()
+		
+	elif time_left > 10.0 and is_danger_mode:
+		is_danger_mode = false
+		reset_danger_animation()
+
+
+func start_danger_animation() -> void:
+	if timer_tween:
+		timer_tween.kill()
+	timer_tween = create_tween().set_loops()
 	
-	
+	timer_tween.tween_property(timer_label, "modulate", Color.RED, 0.5)
+	timer_tween.parallel().tween_property(timer_label, "scale", Vector2(1.5, 1.5), 1.5)
+
+func reset_danger_animation() -> void:
+	if timer_tween:
+		timer_tween.kill()
+	timer_tween.parallel().tween_property(timer_label, "scale", Vector2(1.0, 1.0), 0.3)
+	timer_label.modulate = Color.WHITE
+
+
 func generate_level() -> void:
 	var path_length: int = 6
 	var path_cords: Array = []
@@ -136,10 +163,11 @@ func update_injection_ui() -> void:
 			var inj = injections[i]
 			var seq_string = " - ".join(inj["sequence"])
 			var label = labels[i] as Label
-			label.text = inj["name"] + " (" + str(inj["reward"]) + "s): " + seq_string
+			label.text = inj["name"] + ": " + seq_string
 			
 			if inj["completed"]:
 				label.modulate = Color.GREEN_YELLOW
+
 
 
 func generate_buttons() -> void:
@@ -189,27 +217,30 @@ func _on_token_clicked(btn: Button, col: int, row: int, token: String) -> void:
 		memory.append(token)
 		update_memory_ui()
 		check_injections()
-		
-		if memory.size() >= max_memory:
-			print("end")
-			# TODO over
 	
 	update_visuals()
+	check_round_end()
 
 func update_memory_ui() -> void:
 	for child in memory_bar.get_children():
 		child.queue_free()
 	
-
-	
 	for token in memory:
 		var lbl = Label.new()
-		lbl.text = "[" + token + "]"
+		lbl.text = token
+		lbl.custom_minimum_size = Vector2(40, 40)
+		lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		
+		var style = StyleBoxFlat.new()
+		style.bg_color = Color(0.2, 0.2, 0.2)
+		lbl.add_theme_stylebox_override("normal", style)
+		
 		memory_bar.add_child(lbl)
 	
 	for i in range(max_memory - memory.size()):
 		var rect = ColorRect.new()
-		rect.color = Color.WHITE
+		rect.color = Color(0.4, 0.4, 0.4, 0.5)
 		rect.custom_minimum_size = Vector2(40, 40)
 		rect.custom_maximum_size = Vector2(40, 40)
 		memory_bar.add_child(rect)
@@ -223,10 +254,13 @@ func check_injections() -> void:
 		
 		if is_sub_array(memory, inj["sequence"]):
 			inj["completed"] = true
-			time_left += inj["reward"]
 			successs_this_turn = true
+			
+			var reward = reward_tiers[completed_injection_count]
+			time_left += reward
+			completed_injection_count += 1
+			
 			print("won: ", inj["name"])
-			# TODO: global timer
 	
 	if successs_this_turn:
 		update_injection_ui()
@@ -275,3 +309,66 @@ func update_visuals() -> void:
 			btn.modulate = Color.WHITE
 		else:
 			btn.modulate = Color(0.75, 0.75, 0.75, 0.75)
+
+
+func check_round_end() -> void:
+	if is_game_over: return
+	
+	if completed_injection_count >= 3:
+		print("3 done!")
+		advance_to_next_layer()
+		return
+	
+	var is_memory_full: bool = (memory.size() >= max_memory)
+	var no_moves_left: bool = !has_valid_moves_left()
+	
+	if is_memory_full or no_moves_left:
+		if completed_injection_count > 0:
+			advance_to_next_layer()
+		else:
+			is_game_over = true
+			print("GAME OVER - no moves")
+	
+func has_valid_moves_left() -> bool:
+	var buttons = code_matrix.get_children()
+	for i in range(buttons.size()):
+		var btn = buttons[i] as Button
+		if btn.is_used: continue
+		
+		var col = i % cols
+		var row = int(i/cols)
+		
+		if current_state == moveState.ROW and row == active_index:
+			return true
+		if current_state == moveState.COL and col == active_index:
+			return true
+		
+	return false
+
+func advance_to_next_layer() -> void:
+	Stats.layer += 1
+	current_state = moveState.START
+	active_index = 0
+	memory.clear()
+	completed_injection_count = 0
+	
+	for inj in injections:
+		inj["completed"] = false
+	
+	for lbl in injection_list.get_children():
+		lbl.modulate = Color.WHITE
+	
+	var buttons = code_matrix.get_children()
+	for btn in buttons:
+		btn.is_used = false
+		btn.disabled = false
+		btn.modulate = Color.WHITE
+		for conn in btn.pressed.get_connections():
+			btn.pressed.disconnect(conn.callable)
+	
+	generate_level()
+	update_memory_ui()
+	update_visuals()
+	
+	if level_ui and level_ui.has_method("update_level_ui"):
+		level_ui.update_level_ui()
