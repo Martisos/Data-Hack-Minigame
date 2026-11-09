@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bqach0aipqa2d"]
+
+[ext_resource type="Script" uid="uid://nm3mjaffhtnt" path="res://scripts/grid_button.gd" id="1_65gcf"]
+
+[node name="Button" type="Button" unique_id=1060967084]
+custom_minimum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(50, 50)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 26
+script = ExtResource("1_65gcf")
