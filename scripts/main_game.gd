@@ -262,14 +262,14 @@ func update_memory_ui() -> void:
 		lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		
 		var style = StyleBoxFlat.new()
-		style.bg_color = Color(0.2, 0.2, 0.2)
+		style.bg_color = Color("#0B4F6C")
 		lbl.add_theme_stylebox_override("normal", style)
 		
 		memory_bar.add_child(lbl)
 	
 	for i in range(max_memory - memory.size()):
 		var rect = ColorRect.new()
-		rect.color = Color(0.4, 0.4, 0.4, 0.5)
+		rect.color = Color("#145C9E")
 		rect.custom_minimum_size = Vector2(40, 40)
 		rect.custom_maximum_size = Vector2(40, 40)
 		memory_bar.add_child(rect)

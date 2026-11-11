@@ -1,0 +1,6 @@
+color pallete:
+	#1F271B - bg
+	#0B4F6C - secondary
+	#145C9E - third idk
+	#CBB9A8 - 4
+	#DCC7BE - text
