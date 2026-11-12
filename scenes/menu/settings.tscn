@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://eh2cdt8d5oud"]
 
+[ext_resource type="Script" uid="uid://be00wufwkhiml" path="res://scenes/menu/settings.gd" id="1_rqcjd"]
+
 [node name="Settings" type="Control" unique_id=2062302738]
 layout_mode = 3
 anchors_preset = 15
@@ -9,6 +11,7 @@ offset_right = -286.0
 offset_bottom = -95.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rqcjd")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1084710944]
 layout_mode = 0
@@ -26,7 +29,32 @@ color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 layout_mode = 0
 offset_right = 866.0
 offset_bottom = 64.0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=984046318]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 866.0
+offset_bottom = 553.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=977755812]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=217291330]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="shader_check_box" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=900932139]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "TV SHADER"
+
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/shader_check_box" to="." method="_on_shader_check_box_toggled"]

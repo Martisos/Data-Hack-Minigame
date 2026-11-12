@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bcigapopdiblk" path="res://scripts/menu.gd" id="1_yqeox"]
 [ext_resource type="Shader" uid="uid://d1obtfdchm4m3" path="res://shaders/gradient.gdshader" id="2_vjb58"]
-[ext_resource type="PackedScene" uid="uid://coudwahq5vxea" path="res://scenes/shader_layer.tscn" id="3_con2f"]
 [ext_resource type="PackedScene" uid="uid://eh2cdt8d5oud" path="res://scenes/menu/settings.tscn" id="4_4ytvr"]
 [ext_resource type="PackedScene" uid="uid://b1os3fgq146le" path="res://scenes/menu/shop.tscn" id="4_mhnvy"]
 
@@ -94,8 +93,6 @@ offset_left = -866.0
 offset_top = 10.0
 offset_right = -1152.0
 offset_bottom = -85.0
-
-[node name="ShaderLayer" parent="." unique_id=1508165670 instance=ExtResource("3_con2f")]
 
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]

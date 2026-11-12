@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Stats="*uid://b6txdkr6sqie8"
+ShaderLayer="*uid://coudwahq5vxea"
+Settings="*uid://cyc7k8d0s7oia"
 
 [display]
 
