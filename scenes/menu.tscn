@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://bp1qf34d5iyxg"]
 
 [ext_resource type="Script" uid="uid://bcigapopdiblk" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Shader" uid="uid://d1obtfdchm4m3" path="res://shaders/gradient.gdshader" id="2_vjb58"]
+[ext_resource type="PackedScene" uid="uid://coudwahq5vxea" path="res://scenes/shader_layer.tscn" id="3_con2f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0rdsr"]
+shader = ExtResource("2_vjb58")
+shader_parameter/color_center = Color(0.043137256, 0.30980393, 0.42352942, 1)
+shader_parameter/color_edge = Color(0.006291462, 0.10772786, 0.1584265, 1)
+shader_parameter/radius = 0.0530000025175
+shader_parameter/smoothness = 0.2
+shader_parameter/pulse_speed = 1.0000000475
+shader_parameter/pulse_strength = 0.05
 
 [node name="Menu" type="Control" unique_id=486893638]
 layout_mode = 3
@@ -12,39 +23,65 @@ grow_vertical = 2
 script = ExtResource("1_yqeox")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1302372200]
+material = SubResource("ShaderMaterial_0rdsr")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.11634249, 0.26463008, 0.24043456, 1)
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 
 [node name="Control" type="Control" parent="." unique_id=1168239398]
-anchors_preset = 0
-offset_left = 51.0
-offset_top = 68.0
-offset_right = 190.0
-offset_bottom = 197.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_group_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=615233037]
-layout_mode = 0
-offset_right = 236.0
-offset_bottom = 141.0
+[node name="VBoxContainer" type="HBoxContainer" parent="Control" unique_id=525345583]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -82.0
+offset_right = 576.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
 
 [node name="PlayButton" type="Button" parent="Control/VBoxContainer" unique_id=571499666]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
 text = "PLAY"
+
+[node name="TutorialButton" type="Button" parent="Control/VBoxContainer" unique_id=1334116581]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "TUTORIAL"
 
 [node name="ShopButton" type="Button" parent="Control/VBoxContainer" unique_id=1232741697]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
 text = "SHOP"
 
 [node name="OptionsButton" type="Button" parent="Control/VBoxContainer" unique_id=587551361]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
 text = "SETTINGS"
 
+[node name="ShaderLayer" parent="." unique_id=1508165670 instance=ExtResource("3_con2f")]
+
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
