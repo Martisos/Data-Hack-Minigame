@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://eh2cdt8d5oud"]
+
+[node name="Settings" type="Control" unique_id=2062302738]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -286.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1084710944]
+layout_mode = 0
+offset_right = 866.0
+offset_bottom = 553.0
+color = Color(0.078431375, 0.36078432, 0.61960787, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=379173754]
+layout_mode = 0
+offset_right = 866.0
+offset_bottom = 64.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Label" type="Label" parent="." unique_id=831979355]
+layout_mode = 0
+offset_right = 866.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1

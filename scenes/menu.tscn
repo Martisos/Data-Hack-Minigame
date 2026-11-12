@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bcigapopdiblk" path="res://scripts/menu.gd" id="1_yqeox"]
 [ext_resource type="Shader" uid="uid://d1obtfdchm4m3" path="res://shaders/gradient.gdshader" id="2_vjb58"]
 [ext_resource type="PackedScene" uid="uid://coudwahq5vxea" path="res://scenes/shader_layer.tscn" id="3_con2f"]
+[ext_resource type="PackedScene" uid="uid://eh2cdt8d5oud" path="res://scenes/menu/settings.tscn" id="4_4ytvr"]
+[ext_resource type="PackedScene" uid="uid://b1os3fgq146le" path="res://scenes/menu/shop.tscn" id="4_mhnvy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rdsr"]
 shader = ExtResource("2_vjb58")
@@ -78,6 +80,20 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 text = "SETTINGS"
+
+[node name="Shop" parent="." unique_id=2062302738 instance=ExtResource("4_mhnvy")]
+layout_mode = 1
+offset_left = 1152.0
+offset_top = 10.0
+offset_right = 280.0
+offset_bottom = -85.0
+
+[node name="Settings" parent="." unique_id=728574508 instance=ExtResource("4_4ytvr")]
+layout_mode = 1
+offset_left = -866.0
+offset_top = 10.0
+offset_right = -1152.0
+offset_bottom = -85.0
 
 [node name="ShaderLayer" parent="." unique_id=1508165670 instance=ExtResource("3_con2f")]
 
