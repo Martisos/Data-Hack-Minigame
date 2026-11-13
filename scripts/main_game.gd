@@ -292,14 +292,20 @@ func check_injections() -> void:
 			completed_injection_count += 1
 			
 			show_time_bonus_popup(reward)
+			add_points(completed_injection_count)
 			
 			print("won: ", inj["name"])
 	
 	if successs_this_turn:
 		update_injection_ui()
 
-func add_points(amount: int) -> void:
-	Stats.add_points_this_run(amount)
+func add_points(tier: int) -> void:
+	
+	var amounts = [100, 250, 500, 1000]
+	var amount: int = amounts[tier]
+	var new_amount: int = amount * (1 + (0.1 * Stats.layer))
+	print(new_amount, amount)
+	Stats.add_points_this_run(new_amount)
 	if level_ui and level_ui.has_method("update_level_ui"):
 		level_ui.update_level_ui()
 
@@ -386,6 +392,7 @@ func has_valid_moves_left() -> bool:
 	
 func advance_to_next_layer() -> void:
 	
+	add_points(3)
 	Stats.layer += 1
 	current_state = moveState.START
 	active_index = 0
