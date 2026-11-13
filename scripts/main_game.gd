@@ -291,6 +291,7 @@ func check_injections() -> void:
 			time_left += reward
 			completed_injection_count += 1
 			
+			show_time_bonus_popup(reward)
 			print("won: ", inj["name"])
 	
 	if successs_this_turn:
@@ -443,3 +444,20 @@ func change_rules() -> void:
 	
 	if Stats.layer == 10:
 		reward_tiers = [1.0, 7.0, 10.0]
+
+
+func show_time_bonus_popup(amount: float) -> void:
+	var popup = Label.new()
+	popup.text = "+%.0fs" % amount
+	popup.modulate = Color("145C9E")
+	popup.z_index = 10
+	popup.set("theme_override_font_sizes/font_size", 36)
+	popup.global_position = timer_label.global_position + Vector2(timer_label.size.x + 10, 0.0)
+	add_child(popup)
+	
+	var tween = create_tween().set_parallel()
+	tween.tween_property(popup, "global_position:y", popup.global_position.y - 35.0, 0.8).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	
+	tween.tween_property(popup, "modulate:a", 0.0, 0.8).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	
+	tween.chain().tween_callback(popup.queue_free)
