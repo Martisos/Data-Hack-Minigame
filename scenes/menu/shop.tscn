@@ -10,7 +10,7 @@ offset_bottom = -95.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1084710944]
+[node name="Background" type="ColorRect" parent="." unique_id=1084710944]
 layout_mode = 0
 offset_right = 280.0
 offset_bottom = 553.0
@@ -22,11 +22,54 @@ offset_right = 280.0
 offset_bottom = 64.0
 color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1367969249]
+layout_mode = 0
+offset_left = 116.9761
+offset_top = 46.842606
+offset_right = 182.27051
+offset_bottom = 65.91121
+rotation = 0.5235988
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="." unique_id=1933418174]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 64.0
+offset_right = 280.0
+offset_bottom = 96.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1462577873]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 50.0
+offset_right = 181.19333
+offset_bottom = 64.86633
+rotation = 0.5235988
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
 [node name="Label" type="Label" parent="." unique_id=831979355]
 layout_mode = 0
 offset_right = 280.0
-offset_bottom = 64.0
+offset_bottom = 63.0
 theme_override_font_sizes/font_size = 32
 text = "UPGRADES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=761733789]
+layout_mode = 0
+offset_top = 521.0
+offset_right = 280.0
+offset_bottom = 553.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Label4" type="Label" parent="." unique_id=1556478257]
+layout_mode = 0
+offset_top = 521.0
+offset_right = 280.0
+offset_bottom = 553.0
+theme_override_font_sizes/font_size = 7
+text = "01110101 01110000 01100111 01110010 01100001 01100100 01100101 01110011"
 horizontal_alignment = 1
 vertical_alignment = 1

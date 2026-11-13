@@ -28,7 +28,7 @@ color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 [node name="Label" type="Label" parent="." unique_id=831979355]
 layout_mode = 0
 offset_right = 866.0
-offset_bottom = 64.0
+offset_bottom = 67.0
 theme_override_font_sizes/font_size = 48
 text = "SETTINGS"
 horizontal_alignment = 1
@@ -36,7 +36,8 @@ vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=984046318]
 layout_mode = 0
-offset_top = 64.0
+offset_left = 1.0
+offset_top = 97.0
 offset_right = 866.0
 offset_bottom = 553.0
 theme_override_constants/margin_left = 20
@@ -56,5 +57,48 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "TV SHADER"
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1335966866]
+layout_mode = 0
+offset_left = 440.5343
+offset_top = 47.0
+offset_right = 505.35507
+offset_bottom = 66.34204
+rotation = 0.5235988
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="." unique_id=1091993334]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 64.0
+offset_right = 866.0
+offset_bottom = 96.157394
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=71327641]
+layout_mode = 0
+offset_left = 467.5582
+offset_top = 50.157394
+offset_right = 504.75153
+offset_bottom = 65.02373
+rotation = 0.5235988
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=1092009727]
+layout_mode = 0
+offset_top = 521.0
+offset_right = 866.0
+offset_bottom = 553.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Label2" type="Label" parent="." unique_id=900481751]
+layout_mode = 0
+offset_top = 521.0
+offset_right = 866.0
+offset_bottom = 553.0
+theme_override_font_sizes/font_size = 9
+text = "01110011 01100101 01110100 01110100 01101001 01101110 01100111 01110011 00100000 00101111 00100000 01101111 01110000 01110100 01101001 01101111 01101110 01110011"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer/shader_check_box" to="." method="_on_shader_check_box_toggled"]

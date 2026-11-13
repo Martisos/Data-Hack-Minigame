@@ -27,7 +27,7 @@ var injections: Array[Dictionary] = [
 var completed_injection_count: int = 0
 var reward_tiers: Array[float] = [5.0, 10.0, 15.0]
 
-var time_left: float = 30.0
+var time_left: float = 45.0
 
 var is_game_over: bool = false
 
@@ -58,9 +58,11 @@ func _process(delta: float) -> void:
 	update_timer_ui()
 
 func update_timer_ui() -> void:
-	var seconds = int(time_left)
+	var total_seconds:int = int(time_left)
+	var minutes = total_seconds / 60
+	var seconds = total_seconds % 60
 	var miliseconds = int(fmod(time_left, 1.0) * 100)
-	timer_label.text = "%02d:%02d" % [seconds, miliseconds]
+	timer_label.text = "%02d:%02d:%02d" % [minutes, seconds, miliseconds]
 	
 	if time_left <= 10.0 and !is_danger_mode:
 		is_danger_mode = true
@@ -420,20 +422,24 @@ func change_rules() -> void:
 		rows = 7
 	
 	if Stats.layer == 5:
-		path_length = 6
-		max_memory = 6
+		path_length = 8
+		max_memory = 9
 	
 	if Stats.layer == 6:
 		tokens.append("FF")
 		tokens.append("MT")
 		tokens.append("IO")
-
+	
 	if Stats.layer == 7:
+		path_length = 9
+		max_memory = 10
+	
+	if Stats.layer == 8:
 		reward_tiers = [3.0, 6.0, 10.0]
 	
 	if Stats.layer == 9:
-		path_length = 5
-		max_memory = 5
+		path_length = 9
+		max_memory = 10
 	
 	if Stats.layer == 10:
-		reward_tiers = [1.0, 5.0, 9.0]
+		reward_tiers = [1.0, 7.0, 10.0]
