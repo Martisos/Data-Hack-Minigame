@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://b0gooq1uaw7vn"]
+
+[ext_resource type="Script" uid="uid://dbfbvqlpw2eh7" path="res://scenes/menu/stats_window.gd" id="1_raay2"]
+
+[node name="StatsWindow" type="Control" unique_id=2062302738]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -872.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_raay2")
+
+[node name="CardLook" type="Control" parent="." unique_id=1248424805]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="CardLook" unique_id=1084710944]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 334.0
+color = Color(0.078431375, 0.36078432, 0.61960787, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CardLook" unique_id=379173754]
+layout_mode = 0
+offset_top = -42.0
+offset_right = 280.0
+offset_bottom = 64.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CardLook" unique_id=1367969249]
+layout_mode = 0
+offset_left = 116.9761
+offset_top = 46.842606
+offset_right = 182.27051
+offset_bottom = 65.91121
+rotation = 0.5235988
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="CardLook" unique_id=1933418174]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 64.0
+offset_right = 280.0
+offset_bottom = 96.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CardLook" unique_id=1462577873]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 50.0
+offset_right = 181.19333
+offset_bottom = 64.86633
+rotation = 0.5235988
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="CardLook" unique_id=761733789]
+layout_mode = 0
+offset_top = 302.0
+offset_right = 280.0
+offset_bottom = 334.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="CardLook" unique_id=2109498631]
+layout_mode = 0
+offset_top = 270.0
+offset_right = 105.0
+offset_bottom = 302.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="CardLook" unique_id=1771305218]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 270.00003
+offset_right = 156.33026
+offset_bottom = 302.00003
+rotation = 0.7853982
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="CardLook" unique_id=1439562629]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 64.0
+offset_right = 280.0
+offset_bottom = 312.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="CardLook" unique_id=1949312443]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 18.0
+offset_bottom = 308.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Label" type="Label" parent="CardLook" unique_id=831979355]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 63.0
+theme_override_font_sizes/font_size = 32
+text = "DATA 01"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=915137138]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 96.0
+offset_right = 262.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=424076244]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1889907532]
+layout_mode = 2
+
+[node name="PointsLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=537267246]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "POINTS:"
+
+[node name="PointsLabel2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1435481093]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "000000000"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=106778963]
+layout_mode = 2
+
+[node name="PointsLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2037921229]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "FURTHEST LAYER: "
+
+[node name="PointsLabel2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1250032172]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "00"
+horizontal_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=578435279]
+layout_mode = 2
+
+[node name="PointsLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1011888812]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "TOP RUN POINTS:"
+
+[node name="PointsLabel2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=2081746775]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "00000000000"
+horizontal_alignment = 2
+
+[node name="Grab" type="Control" parent="." unique_id=835393857]
+anchors_preset = 0
+offset_top = 303.0
+offset_right = 280.0
+offset_bottom = 405.0
+
+[node name="Background" type="ColorRect" parent="Grab" unique_id=1495748820]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 280.0
+offset_bottom = 72.0
+mouse_filter = 2
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Label" type="Label" parent="Grab" unique_id=441648546]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 280.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 32
+text = "V"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Grab" to="." method="_on_grab_mouse_entered"]

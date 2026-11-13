@@ -5,6 +5,7 @@ extends Control
 @onready var shop: Control = $Shop
 @onready var settings: Control = $Settings
 @onready var shader_layer: CanvasLayer = $ShaderLayer
+@onready var stats_window: Control = $StatsWindow
 
 enum Windows { NONE, SHOP, SETTINGS }
 var current_window: Windows = Windows.NONE
@@ -49,6 +50,7 @@ func open_shop() -> void:
 
 func open_settings() -> void:
 	close_all_windows()
+	stats_window.close()
 	current_window = Windows.SETTINGS
 	
 	if settings_tween: settings_tween.kill()
@@ -65,3 +67,4 @@ func close_all_windows() -> void:
 	if settings_tween: settings_tween.kill()
 	settings_tween = create_tween()
 	settings_tween.tween_property(settings, "position:x", settings_original_x, 0.15).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	

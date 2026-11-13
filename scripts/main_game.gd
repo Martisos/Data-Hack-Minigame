@@ -292,11 +292,16 @@ func check_injections() -> void:
 			completed_injection_count += 1
 			
 			show_time_bonus_popup(reward)
+			
 			print("won: ", inj["name"])
 	
 	if successs_this_turn:
 		update_injection_ui()
 
+func add_points(amount: int) -> void:
+	Stats.add_points_this_run(amount)
+	if level_ui and level_ui.has_method("update_level_ui"):
+		level_ui.update_level_ui()
 
 func is_sub_array(main_arr: Array, sub_arr: Array) -> bool:
 	if sub_arr.size() == 0 or sub_arr.size() > main_arr.size(): return false

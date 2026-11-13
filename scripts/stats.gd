@@ -2,16 +2,23 @@ extends Node
 
 var layer: int = 1
 var highest_layer: int = 0
-var points: int = 0
+var global_points: int = 0
+var points_this_run: int = 1234
 
-func add_points(amount: int) -> void:
-	points += amount
+func add_global_points(amount: int) -> void:
+	global_points += amount
 
-func remove_points(amount: int) -> bool:
-	if points - amount < 0:
+func add_points_this_run(amount: int) -> void:
+	points_this_run += amount
+
+func reset_points_this_run(amount: int) -> void:
+	points_this_run = 0
+
+func remove_global_points(amount: int) -> bool:
+	if global_points - amount < 0:
 		return false
 	else:
-		points -= amount
+		global_points -= amount
 		return true
 
 func reset_layer() -> void:
