@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://bf1gqsfdwy8lf"]
+
+[ext_resource type="Script" uid="uid://c1pom4n18k2u4" path="res://scripts/game_over.gd" id="1_xeevv"]
+[ext_resource type="StyleBox" uid="uid://c7c3f4tdlaylu" path="res://themes/button_game_over_normal.tres" id="2_racf3"]
+[ext_resource type="Texture2D" uid="uid://c1syjbms8er6r" path="res://images/gameOverSkull.png" id="2_wqhvx"]
+[ext_resource type="StyleBox" uid="uid://emkbya18hc2u" path="res://themes/button_game_over_pressed.tres" id="3_7m3ot"]
+
+[node name="GameOver" type="Control" unique_id=1014203292]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeevv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1051039762]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+
+[node name="GameOverUI" type="Control" parent="." unique_id=1114237730]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -210.0
+offset_right = 451.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="GameOverUI" unique_id=1222824083]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.36078432, 0.61960787, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="GameOverUI" unique_id=1077951061]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -285.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="GameOverUI" unique_id=362782876]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="GameOverUI" unique_id=1308232960]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 94.0
+offset_right = -618.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="GameOverUI" unique_id=1853352169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 619.0
+offset_top = 91.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Label" type="Label" parent="GameOverUI" unique_id=2059806645]
+layout_mode = 0
+offset_right = 631.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 48
+text = "DATA BREACH OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverUI" unique_id=1514278882]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 100.0
+offset_right = 619.0
+offset_bottom = 360.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverUI/MarginContainer" unique_id=1225196699]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverUI/MarginContainer/VBoxContainer" unique_id=184252822]
+layout_mode = 2
+
+[node name="LayerLabelText" type="Label" parent="GameOverUI/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1440289268]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "LAYER: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LayerLabelScore" type="Label" parent="GameOverUI/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1410620543]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GameOverUI/MarginContainer/VBoxContainer" unique_id=1035207365]
+layout_mode = 2
+
+[node name="PointsLabelText" type="Label" parent="GameOverUI/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1682958506]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "POINTS: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointsLabelScore" type="Label" parent="GameOverUI/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1294753504]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "000000000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="GameOverUI/MarginContainer/VBoxContainer" unique_id=1467300135]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="GameOverUI/MarginContainer/VBoxContainer" unique_id=1986534718]
+layout_mode = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="GameOverUI/MarginContainer/VBoxContainer" unique_id=882536566]
+layout_mode = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="GameOverUI/MarginContainer/VBoxContainer" unique_id=528514464]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="GameOverUI/MarginContainer/VBoxContainer" unique_id=489456512]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Button" type="Button" parent="GameOverUI/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1444319197]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_racf3")
+theme_override_styles/pressed = ExtResource("3_7m3ot")
+theme_override_styles/hover = ExtResource("3_7m3ot")
+text = "HACK AGAIN"
+
+[node name="Button2" type="Button" parent="GameOverUI/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=563354172]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_racf3")
+theme_override_styles/pressed = ExtResource("3_7m3ot")
+theme_override_styles/hover = ExtResource("3_7m3ot")
+text = "GO TO MENU"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=621903201]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 99.99999
+offset_top = -125.0
+offset_right = 150.0
+offset_bottom = -75.0
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = ExtResource("2_wqhvx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DeathMessage" type="Label" parent="." unique_id=1926196990]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -33.5
+offset_right = 151.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+theme_override_font_sizes/font_size = 48
+text = "You Failed. . ."
+horizontal_alignment = 1
