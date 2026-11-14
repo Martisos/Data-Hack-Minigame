@@ -129,3 +129,11 @@ func reveal_game_ui() -> void:
 	var tween = create_tween()
 	tween.tween_property(game_over_ui, "modulate:a", 1.0, 0.4)
 	tween.chain().tween_callback(fill_ui)
+
+
+func _on_again_button_pressed() -> void:
+	Transition.change_scene("res://scenes/main_game.tscn")
+
+
+func _on_menu_button_pressed() -> void:
+	Transition.change_scene("res://scenes/menu.tscn")

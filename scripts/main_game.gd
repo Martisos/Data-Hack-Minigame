@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 	if time_left <= 0:
 		time_left = 0.0
 		is_game_over = true
-		print("GAMEOVER")
+		Transition.change_scene("res://scenes/game_over.tscn")
 	
 	update_timer_ui()
 
@@ -370,7 +370,7 @@ func check_round_end() -> void:
 			advance_to_next_layer()
 		else:
 			is_game_over = true
-			print("GAME OVER - no moves")
+			Transition.change_scene("res://scenes/game_over.tscn")
 	
 func has_valid_moves_left() -> bool:
 	var buttons = code_matrix.get_children()
