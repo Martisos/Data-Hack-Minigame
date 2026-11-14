@@ -23,7 +23,7 @@ func _ready() -> void:
 	settings_original_x = settings.global_position.x
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_game.tscn")
+	Transition.change_scene("res://scenes/main_game.tscn")
 
 func _on_tutorial_button_pressed() -> void:
 	print("tutorial")
