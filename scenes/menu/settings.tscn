@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eh2cdt8d5oud"]
 
-[ext_resource type="Script" uid="uid://be00wufwkhiml" path="res://scenes/menu/settings.gd" id="1_rqcjd"]
+[ext_resource type="Script" uid="uid://be00wufwkhiml" path="res://scripts/menu/settings.gd" id="1_rqcjd"]
 
 [node name="Settings" type="Control" unique_id=2062302738]
 layout_mode = 3
@@ -56,7 +56,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "TV SHADER"
+text = "TV SHADER (RECOMMENDED)"
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=1335966866]
 layout_mode = 0

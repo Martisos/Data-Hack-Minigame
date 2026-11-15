@@ -9,18 +9,26 @@ var upgrades: Array[Dictionary] = [
 	{
 		"title" : "Additional 5s",
 		"max_level" : 5,
-		"current_level" : 1,
+		"current_level" : 5,
 		"icon" : preload("uid://c1syjbms8er6r"),
-		"cost" : 25000,
-		"cost_multiplier" : 1.2
+		"cost" : 5000,
+		"cost_multiplier" : 2
 	},
 	{
-		"title" : "+ 1.1 PTS Multiplier",
+		"title" : "+ 1.2 PTS Multiplier",
 		"max_level" : 5,
 		"current_level" : 3,
 		"icon" : preload("uid://c1syjbms8er6r"),
 		"cost" : 25000,
-		"cost_multiplier" : 1.2
+		"cost_multiplier" : 1.3
+	},
+	{
+		"title" : "Additional Memory",
+		"max_level" : 2,
+		"current_level" : 0,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 50000,
+		"cost_multiplier" : 2.0
 	}
 ]
 

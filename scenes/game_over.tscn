@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bf1gqsfdwy8lf"]
 
-[ext_resource type="Script" uid="uid://c1pom4n18k2u4" path="res://scripts/game_over.gd" id="1_xeevv"]
+[ext_resource type="Script" uid="uid://c1pom4n18k2u4" path="res://scripts/game/game_over.gd" id="1_xeevv"]
 [ext_resource type="StyleBox" uid="uid://c7c3f4tdlaylu" path="res://themes/button_game_over_normal.tres" id="2_racf3"]
 [ext_resource type="Texture2D" uid="uid://c1syjbms8er6r" path="res://images/gameOverSkull.png" id="2_wqhvx"]
 [ext_resource type="StyleBox" uid="uid://emkbya18hc2u" path="res://themes/button_game_over_pressed.tres" id="3_7m3ot"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://pr15nvxtx1lb"]
 
-[ext_resource type="Script" uid="uid://ccukjlin28dvv" path="res://scenes/menu/upgrade.gd" id="1_qrh7d"]
+[ext_resource type="Script" uid="uid://ccukjlin28dvv" path="res://scripts/upgrade.gd" id="1_qrh7d"]
 [ext_resource type="Texture2D" uid="uid://c1syjbms8er6r" path="res://images/gameOverSkull.png" id="2_8fvxh"]
 
 [node name="Upgrade" type="Control" unique_id=1120361803]

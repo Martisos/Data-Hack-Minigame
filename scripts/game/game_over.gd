@@ -55,7 +55,9 @@ var second_message: Array[String] = [
 	"Focus.",
 	"Just ALT + F4",
 	"Do Better.",
-	"Maybe Do Something Easier?"
+	"Maybe Do Something Easier?",
+	"There Is No End.",
+	"Is There An End?"
 ]
 
 func _ready() -> void:

@@ -6,7 +6,7 @@ extends Control
 @onready var cost_label: Label = $CostLabel
 
 var title: String = ""
-var max_levels: int = 5
+var max_level: int = 5
 var current_level: int = 0
 var texture: Texture2D
 var cost: int = 0
@@ -15,12 +15,16 @@ var cost_multiplier: float = 1.0
 func _ready() -> void:
 	title_label.text = title
 	icon_texture_rect.texture = texture
-	cost_label.text = str(int(cost * (cost_multiplier ** current_level)))
+	if current_level >= max_level:
+		cost_label.text = ""
+	else:
+		cost_label.text = str(int(cost * (cost_multiplier ** current_level)))
+	
 	
 	for child in levels_container.get_children():
 		child.queue_free()
 	
-	for i in range(max_levels):
+	for i in range(max_level):
 		var rect = ColorRect.new()
 		rect.custom_maximum_size = Vector2(30,30)
 		rect.custom_minimum_size = Vector2(30,30)
@@ -33,9 +37,9 @@ func _ready() -> void:
 		levels_container.add_child(rect)
 	
 
-func setup(new_title: String, new_max_levels:int, new_current_level: int, icon: Texture2D, new_cost: int, new_cost_multiplier: float ) -> void:
+func setup(new_title: String, new_max_level:int, new_current_level: int, icon: Texture2D, new_cost: int, new_cost_multiplier: float ) -> void:
 	title = new_title
-	max_levels = new_max_levels
+	max_level = new_max_level
 	current_level = new_current_level
 	texture = icon
 	cost = new_cost
