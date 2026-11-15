@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b1os3fgq146le"]
 
+[ext_resource type="Script" uid="uid://db0g5bocyask5" path="res://scenes/menu/shop.gd" id="1_360xs"]
+
 [node name="Shop" type="Control" unique_id=2062302738]
 layout_mode = 3
 anchors_preset = 15
@@ -9,6 +11,7 @@ offset_right = -872.0
 offset_bottom = -95.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_360xs")
 
 [node name="CardLook" type="Control" parent="." unique_id=1248424805]
 anchors_preset = 0
@@ -17,13 +20,13 @@ offset_bottom = 40.0
 
 [node name="Background" type="ColorRect" parent="CardLook" unique_id=1084710944]
 layout_mode = 0
-offset_right = 280.0
+offset_right = 360.0
 offset_bottom = 553.0
 color = Color(0.078431375, 0.36078432, 0.61960787, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="CardLook" unique_id=379173754]
 layout_mode = 0
-offset_right = 280.0
+offset_right = 360.0
 offset_bottom = 64.0
 color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 
@@ -40,8 +43,23 @@ color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 layout_mode = 0
 offset_left = 164.0
 offset_top = 64.0
-offset_right = 280.0
+offset_right = 360.0
 offset_bottom = 96.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="CardLook" unique_id=1172924085]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 64.0
+offset_right = 360.0
+offset_bottom = 532.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="CardLook" unique_id=1622301689]
+layout_mode = 0
+offset_top = 55.0
+offset_right = 16.0
+offset_bottom = 523.0
 color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="CardLook" unique_id=1462577873]
@@ -55,7 +73,7 @@ color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 
 [node name="Label" type="Label" parent="CardLook" unique_id=831979355]
 layout_mode = 0
-offset_right = 280.0
+offset_right = 360.0
 offset_bottom = 63.0
 theme_override_font_sizes/font_size = 32
 text = "UPGRADES"
@@ -65,14 +83,14 @@ vertical_alignment = 1
 [node name="ColorRect5" type="ColorRect" parent="CardLook" unique_id=761733789]
 layout_mode = 0
 offset_top = 521.0
-offset_right = 280.0
+offset_right = 360.0
 offset_bottom = 553.0
 color = Color(0.043137256, 0.30980393, 0.42352942, 1)
 
 [node name="Label4" type="Label" parent="CardLook" unique_id=1556478257]
 layout_mode = 0
 offset_top = 521.0
-offset_right = 280.0
+offset_right = 360.0
 offset_bottom = 553.0
 theme_override_font_sizes/font_size = 7
 text = "01110101 01110000 01100111 01110010 01100001 01100100 01100101 01110011"
@@ -81,9 +99,9 @@ vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=849487953]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 97.0
-offset_right = 279.0
+offset_left = 16.0
+offset_top = 96.0
+offset_right = 344.0
 offset_bottom = 520.0
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=559084383]
@@ -96,53 +114,3 @@ theme_override_constants/margin_right = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=465151983]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1722894535]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 1"
-
-[node name="Label2" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=452016196]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 2"
-
-[node name="Label3" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=507431790]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 1"
-
-[node name="Label4" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=973418562]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 2"
-
-[node name="Label5" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1080872705]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 1"
-
-[node name="Label6" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1570408205]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 2"
-
-[node name="Label7" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=388726965]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 1"
-
-[node name="Label8" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=944544314]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 2"
-
-[node name="Label9" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=311689699]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 1"
-
-[node name="Label10" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=977160898]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Text 2"

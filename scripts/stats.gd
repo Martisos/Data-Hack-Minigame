@@ -3,7 +3,26 @@ extends Node
 var layer: int = 1
 var highest_layer: int = 0
 var global_points: int = 0
-var points_this_run: int = 12345
+var points_this_run: int = 0
+
+var upgrades: Array[Dictionary] = [
+	{
+		"title" : "Additional 5s",
+		"max_level" : 5,
+		"current_level" : 1,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 25000,
+		"cost_multiplier" : 1.2
+	},
+	{
+		"title" : "+ 1.1 PTS Multiplier",
+		"max_level" : 5,
+		"current_level" : 3,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 25000,
+		"cost_multiplier" : 1.2
+	}
+]
 
 func add_global_points(amount: int) -> void:
 	global_points += amount

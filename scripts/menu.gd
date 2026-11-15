@@ -4,7 +4,6 @@ extends Control
 @onready var shop_button: Button = $Control/VBoxContainer/ShopButton
 @onready var shop: Control = $Shop
 @onready var settings: Control = $Settings
-@onready var shader_layer: CanvasLayer = $ShaderLayer
 @onready var stats_window: Control = $StatsWindow
 
 enum Windows { NONE, SHOP, SETTINGS }
@@ -46,7 +45,7 @@ func open_shop() -> void:
 	
 	if shop_tween: shop_tween.kill()
 	shop_tween = create_tween()
-	shop_tween.tween_property(shop, "position:x", shop_original_x - 300.0, 0.35).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	shop_tween.tween_property(shop, "position:x", shop_original_x - 360.0, 0.35).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 
 func open_settings() -> void:
 	close_all_windows()
