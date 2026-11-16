@@ -13,7 +13,6 @@ func close() -> void:
 		shown = false
 
 func _on_grab_mouse_entered() -> void:
-	print("yup")
 	shown = !shown
 	var tween = create_tween()
 	if shown:

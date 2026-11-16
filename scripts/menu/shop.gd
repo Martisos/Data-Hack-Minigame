@@ -1,6 +1,6 @@
 extends Control
 
-var aviable_upgrades: Array[Dictionary] = Stats.upgrades
+var aviable_upgrades: Array[Dictionary] = Upgrades.upgrades
 var upgrade_path: PackedScene = preload("uid://pr15nvxtx1lb")
 
 @onready var v_box_container: VBoxContainer = $ScrollContainer/MarginContainer/VBoxContainer

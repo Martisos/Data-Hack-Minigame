@@ -370,6 +370,7 @@ func check_round_end() -> void:
 			advance_to_next_layer()
 		else:
 			is_game_over = true
+			print(Stats.points_this_run)
 			Transition.change_scene("res://scenes/game_over.tscn")
 	
 func has_valid_moves_left() -> bool:

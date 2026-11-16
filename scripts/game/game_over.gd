@@ -64,7 +64,7 @@ func _ready() -> void:
 	game_over_ui.hide()
 	skull.hide()
 	skull.global_position = skull_start_position
-	
+	apply_upgrades()
 	await starting_cutscene()
 	await get_tree().create_timer(1).timeout
 	
@@ -132,10 +132,13 @@ func reveal_game_ui() -> void:
 	tween.tween_property(game_over_ui, "modulate:a", 1.0, 0.4)
 	tween.chain().tween_callback(fill_ui)
 
+func apply_upgrades() -> void:
+	Upgrades.apply_upgrades()
+	points *= Upgrades.additional_multiplier
+	
 
 func _on_again_button_pressed() -> void:
 	Transition.change_scene("res://scenes/main_game.tscn")
-
 
 func _on_menu_button_pressed() -> void:
 	Transition.change_scene("res://scenes/menu.tscn")

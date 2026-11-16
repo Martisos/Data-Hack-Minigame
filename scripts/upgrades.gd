@@ -1,0 +1,51 @@
+extends Node
+
+func _ready() -> void:
+	apply_upgrades()
+
+var upgrades: Array[Dictionary] = [
+	{
+		"title" : "Additional 5s",
+		"max_level" : 5,
+		"current_level" : 5,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 5000,
+		"cost_multiplier" : 2
+	},
+	{
+		"title" : "+ 1.2 PTS Multiplier",
+		"max_level" : 5,
+		"current_level" : 3,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 25000,
+		"cost_multiplier" : 1.3
+	},
+	{
+		"title" : "Additional Memory",
+		"max_level" : 2,
+		"current_level" : 0,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 50000,
+		"cost_multiplier" : 2.0
+	}
+]
+
+var additional_seconds: int = 0
+var additional_memory: int = 0
+var additional_multiplier: float = 1.0
+
+func apply_upgrades() -> void:
+	additional_seconds = 0
+	additional_memory = 0
+	additional_multiplier = 1.0
+
+	for upgrade in upgrades:
+		match upgrade["title"]:
+			"Additional 5s":
+				additional_seconds += 5 * upgrade["current_level"]
+			"+ 1.2 PTS Multiplier":
+				additional_multiplier += 0.2 * upgrade["current_level"]
+				print(upgrade["current_level"])
+				pass
+			"Additional Memory":
+				additional_memory += 1 * upgrade["current_level"]
