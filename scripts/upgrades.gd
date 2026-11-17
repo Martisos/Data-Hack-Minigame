@@ -100,4 +100,3 @@ func apply_upgrades() -> void:
 				additional_memory += 1 * upgrade["current_level"]
 			"Additional Bonus 1s":
 				additional_bonus_seconds += 1 * upgrade["current_level"]
-			

@@ -4,3 +4,7 @@ color pallete:
 	#145C9E - third idk
 	#CBB9A8 - 4
 	#DCC7BE - text
+
+
+music:
+	https://opengameart.org/content/oga-japanese-hack-battle-of-the-clock-and-overwhelming-darkness-mixed-technodono-vs-lsao
