@@ -69,6 +69,7 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	
 	show_ui_cutscene()
+	save_stats()
 
 func starting_cutscene() -> void:
 	death_message.text = ""
@@ -135,7 +136,15 @@ func reveal_game_ui() -> void:
 func apply_upgrades() -> void:
 	Upgrades.apply_upgrades()
 	points *= Upgrades.additional_multiplier
+
+func save_stats() -> void:
+	Stats.add_global_points(points)
 	
+	if Stats.highest_layer < layer:
+		Stats.change_highest_layer(layer)
+	
+	if Stats.top_points < points:
+		Stats.set_top_points(points)
 
 func _on_again_button_pressed() -> void:
 	Transition.change_scene("res://scenes/main_game.tscn")

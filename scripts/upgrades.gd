@@ -7,34 +7,75 @@ var upgrades: Array[Dictionary] = [
 	{
 		"title" : "Additional 5s",
 		"max_level" : 5,
-		"current_level" : 5,
+		"current_level" : 0,
 		"icon" : preload("uid://c1syjbms8er6r"),
 		"cost" : 5000,
-		"cost_multiplier" : 2
+		"cost_multiplier" : 2,
+		"disabled" : false,
 	},
 	{
 		"title" : "Additional Bonus 1s",
 		"max_level" : 3,
-		"current_level" : 1,
+		"current_level" : 0,
 		"icon" : preload("uid://c1syjbms8er6r"),
 		"cost" : 75000,
-		"cost_multiplier" : 1.4
+		"cost_multiplier" : 1.4,
+		"disabled" : false,
 	},
 	{
 		"title" : "+ 1.2 PTS Multiplier",
 		"max_level" : 5,
-		"current_level" : 3,
+		"current_level" : 0,
 		"icon" : preload("uid://c1syjbms8er6r"),
 		"cost" : 25000,
-		"cost_multiplier" : 1.3
+		"cost_multiplier" : 1.3,
+		"disabled" : false,
 	},
 	{
 		"title" : "Additional Memory",
 		"max_level" : 2,
-		"current_level" : 2,
+		"current_level" : 0,
 		"icon" : preload("uid://c1syjbms8er6r"),
 		"cost" : 50000,
-		"cost_multiplier" : 2.0
+		"cost_multiplier" : 2.0,
+		"disabled" : false,
+	},
+	{
+		"title" : "Emergency Reboot",
+		"max_level" : 1,
+		"current_level" : 0,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 0,
+		"cost_multiplier" : 2.0,
+		"disabled" : true,
+	},
+	{
+		"title" : "Signal Decryptor",
+		"max_level" : 2,
+		"current_level" : 0,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 0,
+		"cost_multiplier" : 2.0,
+		"disabled" : true,
+	},
+	{
+		"title" : "CTRL + Z",
+		"max_level" : 3,
+		"current_level" : 0,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 0,
+		"cost_multiplier" : 2.0,
+		"disabled" : true,
+	}
+	,
+	{
+		"title" : "Show Me The Path",
+		"max_level" : 3,
+		"current_level" : 0,
+		"icon" : preload("uid://c1syjbms8er6r"),
+		"cost" : 0,
+		"cost_multiplier" : 2.0,
+		"disabled" : true,
 	}
 ]
 

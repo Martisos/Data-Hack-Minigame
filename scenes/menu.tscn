@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bcigapopdiblk" path="res://scripts/menu/menu.gd" id="1_yqeox"]
 [ext_resource type="Shader" uid="uid://d1obtfdchm4m3" path="res://shaders/gradient.gdshader" id="2_vjb58"]
+[ext_resource type="StyleBox" uid="uid://c7c3f4tdlaylu" path="res://themes/button_game_over_normal.tres" id="3_v86rl"]
 [ext_resource type="PackedScene" uid="uid://eh2cdt8d5oud" path="res://scenes/menu/settings.tscn" id="4_4ytvr"]
+[ext_resource type="StyleBox" uid="uid://emkbya18hc2u" path="res://themes/button_game_over_pressed.tres" id="4_13sgg"]
 [ext_resource type="PackedScene" uid="uid://b1os3fgq146le" path="res://scenes/menu/shop.tscn" id="4_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://b0gooq1uaw7vn" path="res://scenes/menu/StatsWindow.tscn" id="5_4ytvr"]
 
@@ -55,30 +57,43 @@ offset_top = -82.0
 offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 15
 alignment = 1
 
 [node name="PlayButton" type="Button" parent="Control/VBoxContainer" unique_id=571499666]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("3_v86rl")
+theme_override_styles/pressed = ExtResource("4_13sgg")
+theme_override_styles/hover = ExtResource("4_13sgg")
 text = "PLAY"
 
 [node name="TutorialButton" type="Button" parent="Control/VBoxContainer" unique_id=1334116581]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("3_v86rl")
+theme_override_styles/pressed = ExtResource("4_13sgg")
+theme_override_styles/hover = ExtResource("4_13sgg")
 text = "TUTORIAL"
 
 [node name="ShopButton" type="Button" parent="Control/VBoxContainer" unique_id=1232741697]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("3_v86rl")
+theme_override_styles/pressed = ExtResource("4_13sgg")
+theme_override_styles/hover = ExtResource("4_13sgg")
 text = "SHOP"
 
 [node name="OptionsButton" type="Button" parent="Control/VBoxContainer" unique_id=587551361]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("3_v86rl")
+theme_override_styles/pressed = ExtResource("4_13sgg")
+theme_override_styles/hover = ExtResource("4_13sgg")
 text = "SETTINGS"
 
 [node name="StatsWindow" parent="." unique_id=27337706 instance=ExtResource("5_4ytvr")]
