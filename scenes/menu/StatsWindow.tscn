@@ -127,11 +127,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "POINTS:"
 
-[node name="PointsLabel2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1435481093]
+[node name="PointsLabelScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1435481093]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "000000000"
+text = "-"
 horizontal_alignment = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=106778963]
@@ -142,11 +142,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "FURTHEST LAYER: "
 
-[node name="PointsLabel2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1250032172]
+[node name="LayerLabelScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1250032172]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-text = "00"
+text = "-"
 horizontal_alignment = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=578435279]
@@ -157,11 +157,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "TOP RUN POINTS:"
 
-[node name="PointsLabel2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=2081746775]
+[node name="TopRunPointsScore" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=2081746775]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
-text = "00000000000"
+text = "-"
 horizontal_alignment = 2
 
 [node name="Grab" type="Control" parent="." unique_id=835393857]

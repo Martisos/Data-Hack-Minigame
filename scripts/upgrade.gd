@@ -44,3 +44,12 @@ func setup(new_title: String, new_max_level:int, new_current_level: int, icon: T
 	texture = icon
 	cost = new_cost
 	cost_multiplier = new_cost_multiplier
+
+
+func _on_buy_button_pressed() -> void:
+	for upgrade in Upgrades.upgrades:
+		if upgrade["current_level"] < upgrade["max_level"]:
+			if title == upgrade["title"]:
+				Stats.remove_global_points(cost)
+				upgrade["current_level"] += 1
+			

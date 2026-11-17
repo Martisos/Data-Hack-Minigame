@@ -39,6 +39,7 @@ var path_length: int = 6
 func _ready() -> void:
 	code_matrix.columns = cols
 	timer_label.pivot_offset = timer_label.size / 2
+	max_memory += Upgrades.additional_memory
 	generate_buttons()
 	generate_level()
 	update_memory_ui()
@@ -287,8 +288,8 @@ func check_injections() -> void:
 			inj["completed"] = true
 			successs_this_turn = true
 			
-			var reward = reward_tiers[completed_injection_count]
-			time_left += reward
+			var reward = reward_tiers[completed_injection_count] + Upgrades.additional_bonus_seconds
+			time_left += reward 
 			completed_injection_count += 1
 			
 			show_time_bonus_popup(reward)
@@ -417,6 +418,7 @@ func advance_to_next_layer() -> void:
 			btn.pressed.disconnect(conn.callable)
 	
 	generate_level()
+	
 	update_memory_ui()
 	update_visuals()
 	
@@ -438,6 +440,7 @@ func change_rules() -> void:
 	if Stats.layer == 5:
 		path_length = 8
 		max_memory = 9
+		max_memory += Upgrades.additional_memory
 	
 	if Stats.layer == 6:
 		tokens.append("FF")
@@ -447,6 +450,7 @@ func change_rules() -> void:
 	if Stats.layer == 7:
 		path_length = 9
 		max_memory = 10
+		max_memory += Upgrades.additional_memory
 	
 	if Stats.layer == 8:
 		reward_tiers = [3.0, 6.0, 10.0]
@@ -454,10 +458,10 @@ func change_rules() -> void:
 	if Stats.layer == 9:
 		path_length = 9
 		max_memory = 10
+		max_memory += Upgrades.additional_memory
 	
 	if Stats.layer == 10:
 		reward_tiers = [1.0, 7.0, 10.0]
-
 
 func show_time_bonus_popup(amount: float) -> void:
 	var popup = Label.new()

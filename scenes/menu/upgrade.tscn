@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://ccukjlin28dvv" path="res://scripts/upgrade.gd" id="1_qrh7d"]
 [ext_resource type="Texture2D" uid="uid://c1syjbms8er6r" path="res://images/gameOverSkull.png" id="2_8fvxh"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb7tl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Upgrade" type="Control" unique_id=1120361803]
 custom_minimum_size = Vector2(310, 96)
 custom_maximum_size = Vector2(310, 96)
@@ -111,3 +114,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.29803923, 0.29803923, 0.29803923, 1)
+
+[node name="BuyButton" type="Button" parent="." unique_id=881148636]
+layout_mode = 0
+offset_right = 310.0
+offset_bottom = 96.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_kb7tl")
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

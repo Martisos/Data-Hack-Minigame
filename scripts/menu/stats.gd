@@ -1,10 +1,10 @@
 extends Node
 
 var layer: int = 1
-var highest_layer: int = 0
-var global_points: int = 0
+var highest_layer: int = 13
+var global_points: int = 123321
 var points_this_run: int = 0
-
+var top_points: int = 0
 
 
 func add_global_points(amount: int) -> void:
