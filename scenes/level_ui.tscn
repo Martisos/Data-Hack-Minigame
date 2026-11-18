@@ -5,11 +5,62 @@
 [node name="LevelUI" type="CanvasLayer" unique_id=703004875]
 script = ExtResource("1_exbfu")
 
+[node name="Control2" type="Control" parent="." unique_id=1195692364]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 334.00977
+offset_top = 649.01
+offset_right = 374.00977
+offset_bottom = 689.01
+
+[node name="UpperBg" type="ColorRect" parent="Control2" unique_id=1599549305]
+layout_mode = 0
+offset_left = 465.48773
+offset_top = -706.01
+offset_right = 560.9646
+offset_bottom = -636.00995
+rotation = 0.7853982
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="UpperBg2" type="ColorRect" parent="Control2" unique_id=558206900]
+layout_mode = 0
+offset_left = 483.48773
+offset_top = -659.01
+offset_right = 817.4975
+offset_bottom = -589.01
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Control" type="Control" parent="." unique_id=1007094427]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 800.0
+offset_top = -47.000008
+offset_right = 840.0
+offset_bottom = -7.0000076
+rotation = 3.1415927
+
+[node name="UpperBg4" type="ColorRect" parent="Control" unique_id=1684655006]
+layout_mode = 0
+offset_left = 465.99017
+offset_top = -706.0101
+offset_right = 799.99994
+offset_bottom = -636.0101
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="UpperBg3" type="ColorRect" parent="Control" unique_id=1702436906]
+layout_mode = 0
+offset_left = 447.99017
+offset_top = -753.00995
+offset_right = 543.46704
+offset_bottom = -683.0099
+rotation = 0.7853982
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
 [node name="LayerLabel" type="Label" parent="." unique_id=1018248245]
-offset_left = 921.0
-offset_top = 561.0
-offset_right = 1132.0
-offset_bottom = 628.0
+offset_left = 96.0
+offset_top = 581.0
+offset_right = 307.0
+offset_bottom = 648.0
 theme_override_colors/font_color = Color(0.8627451, 0.78039217, 0.74509805, 1)
 theme_override_font_sizes/font_size = 32
 text = "LAYER - 1"
@@ -17,11 +68,19 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="PointsLabel" type="Label" parent="." unique_id=1558107598]
-offset_left = 12.0
-offset_top = 9.0
-offset_right = 223.0
-offset_bottom = 76.0
+offset_left = 845.0
+offset_top = 1.0
+offset_right = 1132.0
+offset_bottom = 68.0
 theme_override_colors/font_color = Color(0.8627451, 0.78039217, 0.74509805, 1)
 theme_override_font_sizes/font_size = 36
 text = "PTS: 0000000000"
 vertical_alignment = 1
+
+[node name="UpperBg5" type="ColorRect" parent="." unique_id=248635099]
+offset_left = 73.53785
+offset_top = -81.9493
+offset_right = 187.86945
+offset_bottom = 141.13873
+rotation = 0.7853982
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)

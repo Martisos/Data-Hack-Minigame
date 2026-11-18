@@ -177,16 +177,49 @@ func generate_injections() -> void:
 	update_injection_ui()
 
 func update_injection_ui() -> void:
-	var labels = injection_list.get_children()
-	for i in range(injections.size()):
-		if i < labels.size():
-			var inj = injections[i]
-			var seq_string = " - ".join(inj["sequence"])
-			var label = labels[i] as Label
-			label.text = inj["name"] + ": " + seq_string
+	for child in injection_list.get_children():
+			child.queue_free()
+		
+	injection_list.add_theme_constant_override("separation", 8)
+	
+	for inj in injections:
+		var row = HBoxContainer.new()
+		row.add_theme_constant_override("separation", 6)
+		
+		var name_lbl = Label.new()
+		name_lbl.set("theme_override_font_sizes/font_size", 24)
+		name_lbl.text = inj["name"] + ":"
+		name_lbl.custom_minimum_size.x = 125 
+		name_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		
+		if inj["completed"]:
+			name_lbl.modulate = Color.GREEN_YELLOW
+		
+		row.add_child(name_lbl)
+		
+		for token in inj["sequence"]:
+			var cell = Label.new()
+			cell.set("theme_override_font_sizes/font_size", 24)
+			cell.text = token
+			cell.custom_minimum_size = Vector2(45, 35)
+			cell.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			cell.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 			
+			var style = StyleBoxFlat.new()
 			if inj["completed"]:
-				label.modulate = Color.GREEN_YELLOW
+				style.bg_color = Color(0.1, 0.4, 0.15, 0.8)
+				style.border_color = Color.GREEN_YELLOW
+			else:
+				style.bg_color = Color(0.08, 0.12, 0.2, 0.7)
+				style.border_color = Color(0.2, 0.45, 0.7, 0.5)
+				
+			style.set_border_width_all(1)
+			style.set_corner_radius_all(3)
+			cell.add_theme_stylebox_override("normal", style)
+			
+			row.add_child(cell)
+		
+		injection_list.add_child(row)
 
 
 func sync_grid_size() -> void:
