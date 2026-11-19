@@ -75,46 +75,6 @@ offset_top = 27.0
 offset_right = 307.0
 offset_bottom = 67.0
 
-[node name="ColorRect" type="ColorRect" parent="LevelsContainer" unique_id=961204102]
-custom_minimum_size = Vector2(30, 30)
-custom_maximum_size = Vector2(-1, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.8627451, 0.78039217, 0.74509805, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="LevelsContainer" unique_id=636249349]
-custom_minimum_size = Vector2(30, 30)
-custom_maximum_size = Vector2(-1, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.8627451, 0.78039217, 0.74509805, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="LevelsContainer" unique_id=1390054503]
-custom_minimum_size = Vector2(30, 30)
-custom_maximum_size = Vector2(-1, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.8627451, 0.78039217, 0.74509805, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="LevelsContainer" unique_id=1103362964]
-custom_minimum_size = Vector2(30, 30)
-custom_maximum_size = Vector2(-1, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.8627451, 0.78039217, 0.74509805, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="LevelsContainer" unique_id=1992124102]
-custom_minimum_size = Vector2(30, 30)
-custom_maximum_size = Vector2(-1, 30)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.29803923, 0.29803923, 0.29803923, 1)
-
 [node name="BuyButton" type="Button" parent="." unique_id=881148636]
 layout_mode = 0
 offset_right = 310.0

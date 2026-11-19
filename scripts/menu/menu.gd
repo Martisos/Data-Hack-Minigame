@@ -20,20 +20,24 @@ func _ready() -> void:
 	shop.global_position = Vector2(1152, 10)
 	shop_original_x = shop.global_position.x
 	settings_original_x = settings.global_position.x
+	AudioManager.play_music(preload("uid://b87kylwlgmj85"))
 
 func _on_play_button_pressed() -> void:
 	Transition.change_scene("res://scenes/main_game.tscn")
 
 func _on_tutorial_button_pressed() -> void:
 	print("tutorial")
+	AudioManager.play_sfx(preload("uid://b3lvp3hvo61dv"), -0.2, 0.1)
 
 func _on_shop_button_pressed() -> void:
+	AudioManager.play_sfx(preload("uid://b3lvp3hvo61dv"), 0.2, 0.1)
 	if current_window == Windows.SHOP:
 		close_all_windows()
 	else:
 		open_shop()
 
 func _on_options_button_pressed() -> void:
+	AudioManager.play_sfx(preload("uid://b3lvp3hvo61dv"), -0.2, 0.1)
 	if current_window == Windows.SETTINGS:
 		close_all_windows()
 	else:

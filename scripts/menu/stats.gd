@@ -4,7 +4,7 @@ signal global_points_changed
 
 var layer: int = 1
 var highest_layer: int = 0
-var global_points: int = 0
+var global_points: int = 5000
 var points_this_run: int = 0
 var top_points: int = 0
 

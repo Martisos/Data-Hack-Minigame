@@ -37,7 +37,7 @@ func _ready() -> void:
 			rect.color = Color(0.3, 0.3, 0.3, 0.5)
 			
 		levels_container.add_child(rect)
-		update_ui()
+	update_ui()
 	
 
 func setup(new_title: String, new_max_level:int, new_current_level: int, icon: Texture2D, new_cost: int, new_cost_multiplier: float ) -> void:
@@ -86,6 +86,7 @@ func _on_buy_button_pressed() -> void:
 	var current_cost = get_current_cost()
 	
 	if Stats.remove_global_points(current_cost):
+		AudioManager.play_sfx(preload("uid://bpiduunv1b4ps"), 0.0, 0.1)
 		for upgrade in Upgrades.upgrades:
 			if title == upgrade["title"]:
 				upgrade["current_level"] += 1

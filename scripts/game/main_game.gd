@@ -44,6 +44,7 @@ func _ready() -> void:
 	max_memory += Upgrades.additional_memory
 	generate_buttons()
 	generate_level()
+	time_left += Upgrades.additional_seconds
 	update_memory_ui()
 	level_ui.update_level_ui()
 	update_visuals()
@@ -274,6 +275,7 @@ func _on_token_clicked(btn: Button, col: int, row: int, token: String) -> void:
 	if current_state == moveState.ROW and row != active_index: return
 	if current_state == moveState.COL and col != active_index: return
 	
+	AudioManager.play_sfx(preload("uid://coxwa603mqrqr"), -0.3, 0.2)
 	btn.is_used = true
 	btn.disabled = true
 	btn.modulate = Color(0.3, 0.3, 0.3, 0.5)

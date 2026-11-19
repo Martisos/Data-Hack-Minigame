@@ -15,6 +15,10 @@ run/main_scene="uid://bp1qf34d5iyxg"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://brm0mxmt44amk"
+
 [autoload]
 
 Stats="*uid://b6txdkr6sqie8"
@@ -22,6 +26,7 @@ ShaderLayer="*uid://coudwahq5vxea"
 Settings="*uid://cyc7k8d0s7oia"
 Transition="*uid://bc42dpyul4xke"
 Upgrades="*uid://c841sxdmlss3q"
+AudioManager="*uid://b862jw8n1oe3p"
 
 [display]
 

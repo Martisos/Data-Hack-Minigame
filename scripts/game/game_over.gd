@@ -8,6 +8,8 @@ extends Control
 @onready var points_label_score: Label = $GameOverUI/MarginContainer/VBoxContainer/HBoxContainer2/PointsLabelScore
 @onready var skull: TextureRect = $TextureRect
 
+@export var keyboard_sfx: Array[AudioStream] = []
+
 var skull_original_position: Vector2 = Vector2(100.0, 199.0)
 var skull_start_position: Vector2 = Vector2(458.0, 199.0)
 
@@ -75,10 +77,14 @@ func starting_cutscene() -> void:
 	death_message.text = ""
 	death_message.show()
 	await get_tree().create_timer(1).timeout
+	
 	var sentance: String = game_overs.pick_random()
+	
+	
 	
 	for i in sentance:
 		death_message.text += i
+		AudioManager.play_sfx(keyboard_sfx.pick_random())
 		await get_tree().create_timer(0.15).timeout
 	
 	await get_tree().create_timer(1).timeout
@@ -87,7 +93,8 @@ func starting_cutscene() -> void:
 	
 	for i in sentance:
 		death_message.text += i
-		await get_tree().create_timer(0.1).timeout
+		AudioManager.play_sfx(keyboard_sfx.pick_random())
+		await get_tree().create_timer(0.15).timeout
 
 func fill_ui() -> void:
 	
