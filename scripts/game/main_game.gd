@@ -36,6 +36,8 @@ var timer_tween: Tween
 
 var path_length: int = 6
 
+var hovered_token: String = ""
+
 func _ready() -> void:
 	code_matrix.columns = cols
 	timer_label.pivot_offset = timer_label.size / 2
@@ -162,7 +164,9 @@ func generate_level() -> void:
 			var token = tokens.pick_random()
 			btn.setup(token)
 			btn.pressed.connect(_on_token_clicked.bind(btn, col, row, token))
-	
+
+
+
 func generate_injections() -> void:
 	var lengths = [2, 3, 3]
 	
@@ -204,6 +208,10 @@ func update_injection_ui() -> void:
 			cell.custom_minimum_size = Vector2(45, 35)
 			cell.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 			cell.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+			
+			cell.mouse_filter = Control.MOUSE_FILTER_STOP
+			cell.mouse_entered.connect(_on_token_hovered.bind(token))
+			cell.mouse_exited.connect(_on_token_unhovered)
 			
 			var style = StyleBoxFlat.new()
 			if inj["completed"]:
@@ -386,6 +394,13 @@ func update_visuals() -> void:
 			btn.modulate = Color.WHITE
 		else:
 			btn.modulate = Color(0.75, 0.75, 0.75, 0.75)
+		
+		var is_highlighted = (hovered_token != "" and btn.text == hovered_token)
+		
+		if is_highlighted:
+			btn.modulate = Color(0.3, 0.9, 1.0) if is_valid_move else Color(0.2, 0.5, 0.7)
+		else:
+			btn.modulate = Color.WHITE if is_valid_move else Color(0.5, 0.5, 0.5, 0.5)
 
 
 func check_round_end() -> void:
@@ -426,7 +441,6 @@ func has_valid_moves_left() -> bool:
 	return false
 	
 func advance_to_next_layer() -> void:
-	
 	add_points(3)
 	Stats.layer += 1
 	current_state = moveState.START
@@ -511,3 +525,11 @@ func show_time_bonus_popup(amount: float) -> void:
 	tween.tween_property(popup, "modulate:a", 0.0, 0.8).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 	
 	tween.chain().tween_callback(popup.queue_free)
+
+func _on_token_hovered(token: String) -> void:
+	hovered_token = token
+	update_visuals()
+
+func _on_token_unhovered() -> void:
+	hovered_token = ""
+	update_visuals()
