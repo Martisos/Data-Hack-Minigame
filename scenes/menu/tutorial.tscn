@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://m6y7up2qtuxk"]
+
+[ext_resource type="Script" uid="uid://bd4n3lse016bp" path="res://scripts/menu/tutorial.gd" id="1_wdjaf"]
+
+[node name="Tutorial" type="Control" unique_id=2062302738]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -77.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wdjaf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1084710944]
+layout_mode = 0
+offset_right = 1073.0
+offset_bottom = 553.0
+color = Color(0.078431375, 0.36078432, 0.61960787, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=379173754]
+layout_mode = 0
+offset_right = 1073.0
+offset_bottom = 64.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Label" type="Label" parent="." unique_id=831979355]
+layout_mode = 0
+offset_right = 1072.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 48
+text = "TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=984046318]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 97.0
+offset_right = 1073.0
+offset_bottom = 553.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1787139388]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=413638047]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WelcomeLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=492454447]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Welcome to  DATA HACK!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="IntroLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=423568288]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "MISSION OBJECTIVE:
+Infiltrate the system by uploading target Injections before the clock runs out.
+Time runs fast, but every completed sequence buys you seconds to breach deeper."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StepLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=566243475]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "
+PHASE 1: HORIZONTAL ENTRY
+Every breach always begins on the TOP ROW.
+Pick any token along this horizontal vector. The rest of the matrix is locked."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=2062198239]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+
+[node name="StepLabel2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1138578180]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "
+PHASE 2: VERTICAL ENTRY
+Your selection dictates your next vector
+ If you pick 'BD' from Column 2, your next move MUST come from that exact VERTICAL COLUMN.
+
+The sequence alternates with every move:
+ROW  ->  COLUMN  ->  ROW  ->  COLUMN...\""
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1357469843]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 4
+
+[node name="SummaryLabel" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1203680361]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "OPERATOR'S INTEL:
+Trace your route before clicking. If your Memory fills up without completing at least one Injection, security triggers an immediate hard disconnect.
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1335966866]
+layout_mode = 0
+offset_left = 439.13174
+offset_top = 49.609013
+offset_right = 503.86264
+offset_bottom = 65.99031
+rotation = 0.5235988
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="." unique_id=1091993334]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 64.0
+offset_right = 1073.0
+offset_bottom = 96.157394
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=71327641]
+layout_mode = 0
+offset_left = 467.5582
+offset_top = 50.157394
+offset_right = 504.75153
+offset_bottom = 65.02373
+rotation = 0.5235988
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=1092009727]
+layout_mode = 0
+offset_top = 521.0
+offset_right = 1073.0
+offset_bottom = 553.0
+color = Color(0.043137256, 0.30980393, 0.42352942, 1)
+
+[node name="Label2" type="Label" parent="." unique_id=900481751]
+layout_mode = 0
+offset_top = 521.0
+offset_right = 1073.0
+offset_bottom = 553.0
+theme_override_font_sizes/font_size = 9
+text = "01010100 01010101 01010100 01001111 01010010 01001001 01000001 01001100 01010100 01010101 01010100 01001111 01010010 01001001 01000001 01001100"
+horizontal_alignment = 1
+vertical_alignment = 1

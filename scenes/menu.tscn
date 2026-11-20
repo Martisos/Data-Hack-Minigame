@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://emkbya18hc2u" path="res://themes/button_game_over_pressed.tres" id="4_13sgg"]
 [ext_resource type="PackedScene" uid="uid://b1os3fgq146le" path="res://scenes/menu/shop.tscn" id="4_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://b0gooq1uaw7vn" path="res://scenes/menu/StatsWindow.tscn" id="5_4ytvr"]
+[ext_resource type="PackedScene" uid="uid://m6y7up2qtuxk" path="res://scenes/menu/tutorial.tscn" id="8_13sgg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0rdsr"]
 shader = ExtResource("2_vjb58")
@@ -116,6 +117,13 @@ offset_left = -866.0
 offset_top = 10.0
 offset_right = -1152.0
 offset_bottom = -85.0
+
+[node name="Tutorial" parent="." unique_id=1428047456 instance=ExtResource("8_13sgg")]
+layout_mode = 1
+offset_left = 43.0
+offset_top = 653.0
+offset_right = -34.0
+offset_bottom = 558.0
 
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
