@@ -72,6 +72,7 @@ func _ready() -> void:
 	
 	show_ui_cutscene()
 	save_stats()
+	
 
 func starting_cutscene() -> void:
 	death_message.text = ""
@@ -152,6 +153,8 @@ func save_stats() -> void:
 	
 	if Stats.top_points < points:
 		Stats.set_top_points(points)
+	
+	SaveSystem.save_game()
 
 func _on_again_button_pressed() -> void:
 	Transition.change_scene("res://scenes/main_game.tscn")

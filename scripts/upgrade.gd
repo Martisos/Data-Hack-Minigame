@@ -96,6 +96,7 @@ func _on_buy_button_pressed() -> void:
 	
 	Upgrades.apply_upgrades()
 	update_ui()
+	SaveSystem.save_game()
 
 func animate_bought_rect(index: int) -> void:
 	var rects = levels_container.get_children()
