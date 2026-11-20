@@ -47,7 +47,6 @@ func change_scene(target_scene) -> void:
 		
 	await get_tree().process_frame
 	
-	print(Settings.tv_shader_visible)
 	if has_node("/root/ShaderLayer") and Settings.tv_shader_visible:
 		ShaderLayer.show()
 	

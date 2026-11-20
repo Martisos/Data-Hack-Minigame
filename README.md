@@ -25,6 +25,7 @@ A fast-paced cyberpunk puzzle roguelite inspired by the "Breach Protocol" miniga
 ## Credits
 * **Inspiration:** Hacking mechanics inspired by *Cyberpunk 2077* (Breach Protocol)
 * **Engine:** Built with [Godot Engine](https://godotengine.org/)
+* **Icons:** Used In Menu and Game Icon: [Icons on itchio](https://nikoichu.itch.io/pixel-icons)
 
 ## Music
 * **oga_japanesehack_battle_of_the_clocl_overwhelming_darkness_mix.ogg** (License: **CC-BY-SA 4.0**) — Mix of:

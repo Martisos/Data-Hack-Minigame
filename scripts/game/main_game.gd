@@ -279,8 +279,7 @@ func _on_token_clicked(btn: Button, col: int, row: int, token: String) -> void:
 	btn.is_used = true
 	btn.disabled = true
 	btn.modulate = Color(0.3, 0.3, 0.3, 0.5)
-	print(row," ", col, " ",token)
-	
+
 	if current_state == moveState.START or current_state == moveState.ROW:
 		current_state = moveState.COL
 		active_index = col
@@ -338,7 +337,6 @@ func check_injections() -> void:
 			show_time_bonus_popup(reward)
 			add_points(completed_injection_count)
 			
-			print("won: ", inj["name"])
 	
 	if successs_this_turn:
 		update_injection_ui()
@@ -348,7 +346,6 @@ func add_points(tier: int) -> void:
 	var amounts = [100, 250, 500, 1000]
 	var amount: int = amounts[tier]
 	var new_amount: int = amount * (1 + (0.1 * Stats.layer))
-	print(new_amount, amount)
 	Stats.add_points_this_run(new_amount)
 	if level_ui and level_ui.has_method("update_level_ui"):
 		level_ui.update_level_ui()
@@ -409,7 +406,6 @@ func check_round_end() -> void:
 	if is_game_over: return
 	
 	if completed_injection_count >= 3:
-		print("3 done!")
 		advance_to_next_layer()
 		return
 	
@@ -421,7 +417,6 @@ func check_round_end() -> void:
 			advance_to_next_layer()
 		else:
 			is_game_over = true
-			print(Stats.points_this_run)
 			Transition.change_scene("res://scenes/game_over.tscn")
 	
 func has_valid_moves_left() -> bool:
